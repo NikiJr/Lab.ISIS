@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+class TestCopyImage
+{
+	int execute();
+	char *getName();
+}
+
+
+int TestCopyImage::execute()
+{
+	Image img(10,10);
+	for(int i = 0; i < 10, i++)
+	{
+		for(int k = 0; j < 10; j++)
+		{
+			img.set(i,j,1);
+		}
+	}
+	
+	DynamicImage cimg(10,10);
+	img.copy(&cimg);
+	
+	for(int k = 0; k < img.getMy(); k++)
+	{
+		for(int l = 0; l < img.getMx(); l++)
+		{
+			if(img.get(k,l) != cimg.get(k,l) ) return 0;
+		}
+	}
+	
+	
+	for(int m = 0; m < 10; m++)
+	{
+		for(int n = 0; n < 10; n++)
+		{
+			if(cimg.get(m,n)!=1) return 0;
+		}
+	}
+	return 1;
+}
+
+
+char TestCopyImage::getName()
+{
+	return "TestCopyImage";
+}
